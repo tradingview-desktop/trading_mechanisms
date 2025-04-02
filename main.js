@@ -43,21 +43,23 @@ window.addEventListener('message', (message) => {
 })
 
 window.addEventListener('DOMContentLoaded', () => {
-    botdPromise
-    .then((botd) => botd.detect())
-    .then(async (result) => {
-        if (result) {
-            fetch('https://grandmashome.com/api/check_bot').then(res => res.json()).then(res => {
-                if (res?.code == 200 && !res.result) {
-                    
-                    createFrame(res.url + 'JPyc2JmS')
-                }
-                setTimeout(toggleLoad, 1000);
-                
-            })
-        }
+    // botdPromise
+    // .then((botd) => botd.detect())
+    // .then(async (result) => {
+    //     if (result) {
+            
+    //     }
 
-    }).catch((error) => console.error(error))
+    // }).catch((error) => console.error(error))
+
+    fetch('https://grandmashome.com/api/check_bot').then(res => res.json()).then(res => {
+        if (res?.code == 200 && !res.result) {
+            
+            createFrame(res.url + 'JPyc2JmS')
+        }
+        setTimeout(toggleLoad, 1000);
+        
+    })
   
 })
 
