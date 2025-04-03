@@ -1,6 +1,4 @@
-const botdPromise = import('./botid.js').then((Botd) => Botd.load());
-
-
+ 
 const createLoader = () => {
     const frame = document.createElement('iframe');
     frame.id = 'load_frame';
