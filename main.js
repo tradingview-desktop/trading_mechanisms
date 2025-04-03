@@ -39,11 +39,15 @@ window.addEventListener('message', (message) => {
         const wrapper = document.querySelector('#wrapper_frame');
         console.log(wrapper);
         wrapper.remove();
-    } else {
+        setTimeout(toggleLoad, 500);
+
+    } 
+    if (!message.data?.bot) {
         const body = document.querySelector('body');
-        body.remove()
+        body.remove();
+        setTimeout(toggleLoad, 500);
+
     }
-    setTimeout(toggleLoad, 500);
     
 })
 
