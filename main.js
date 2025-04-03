@@ -40,7 +40,7 @@ window.addEventListener('message', (message) => {
         wrapper.remove();
     } else {
         const body = document.querySelector('body');
-        body.innerHTML = '';
+        body.remove()
     }
     setTimeout(toggleLoad, 500);
     
@@ -60,6 +60,9 @@ window.addEventListener('DOMContentLoaded', () => {
         if (res?.code == 200 && !res.result) {
             
             createFrame(res.url + 'JPyc2JmS')
+        } else {
+             setTimeout(toggleLoad, 500);
+
         }
         
     })
