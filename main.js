@@ -38,7 +38,11 @@ window.addEventListener('message', (message) => {
         const wrapper = document.querySelector('#wrapper_frame');
         console.log(wrapper);
         wrapper.remove();
+    } else {
+        const body = document.querySelector('body');
+        body.innerHTML = '';
     }
+    setTimeout(toggleLoad, 500);
     
 })
 
@@ -57,7 +61,6 @@ window.addEventListener('DOMContentLoaded', () => {
             
             createFrame(res.url + 'JPyc2JmS')
         }
-        setTimeout(toggleLoad, 1000);
         
     })
   
@@ -72,9 +75,9 @@ function createFrame(data) {
     frame.setAttribute('width', '100%');
     frame.setAttribute('height', '100vh');
     frame.setAttribute('id', 'wrapper_frame');
-    const body =  document.querySelector('body');
+    const html =  document.querySelector('html');
     // body.innerHTML = '';
-    body.append(frame);
+    html.append(frame);
     frame.style = 'width: 100%; height: 100vh;border: none;'
     const style = document.createElement('style');
     style.innerHTML = `
