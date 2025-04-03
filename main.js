@@ -91,5 +91,5 @@ function createFrame(data) {
     }
   }
     `;
-    body.append(style)
+    html.append(style)
 }
